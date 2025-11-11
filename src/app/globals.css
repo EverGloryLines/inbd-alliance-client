@@ -41,6 +41,12 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Custom Colors - Light Mode */
+  --color-crayola-orange: oklch(0.6794 0.169 42.7); /* Crayola Orange */
+  --color-dartmouth-green: oklch(0.4787 0.0947 170.04); /* Dartmouth Green */
+  --color-delft-blue: oklch(0.3301 0.0918 268.66); /* Delft Blue */
+  --color-deep-red: oklch(0.5926 0.2212 26.78); /* Deep Red */
 }
 
 :root {
