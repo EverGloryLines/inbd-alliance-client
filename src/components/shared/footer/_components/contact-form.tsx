@@ -74,10 +74,10 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="space-y-6">
       <div>
-        <h2 className="text-3xl font-serif text-white mb-2 text-balance">
+        <h2 className="text-3xl 2xl:text-4xl font-song-myung font-medium text-white mb-2 tracking-[-0.02em]">
           Let&apos;s do business together!
         </h2>
-        <p className="text-white/80 text-sm">
+        <p className="text-white/70 text-base tracking-[-0.02em] font-sans font-medium">
           Anytime we have an opportunity we will let you know!
         </p>
       </div>
@@ -94,7 +94,7 @@ export function ContactForm() {
             placeholder="Your Full Name"
             value={formData.fullName}
             onChange={handleChange}
-            className="bg-white text-black placeholder:text-gray-400 border-0 rounded-xl h-12"
+            className="bg-white text-black placeholder:text-gray-400 border-0 rounded-lg h-12"
             aria-invalid={!!errors.fullName}
             aria-describedby={errors.fullName ? "fullName-error" : undefined}
           />
@@ -117,7 +117,7 @@ export function ContactForm() {
             placeholder="Your Email Address"
             value={formData.email}
             onChange={handleChange}
-            className="bg-white text-black placeholder:text-gray-400 border-0 rounded-xl h-12"
+            className="bg-white text-black placeholder:text-gray-400 border-0 rounded-lg h-12"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "email-error" : undefined}
           />
@@ -128,15 +128,16 @@ export function ContactForm() {
           )}
         </div>
       </div>
-
-      {/* Submit Button */}
-      <Button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-black text-white hover:bg-black/80 rounded-full h-12 font-medium"
-      >
-        {isSubmitting ? "Submitting..." : "Submit"}
-      </Button>
+      <div className="w-full flex items-center justify-center">
+        {/* Submit Button */}
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="px-8 mx-auto bg-white hover:bg-white/80 text-black rounded-lg h-10 text-base font-sans font-medium cursor-pointer"
+        >
+          {isSubmitting ? "Submitting..." : "Submit"}
+        </Button>
+      </div>
 
       {/* Quick Contact Options */}
       <QuickContact />

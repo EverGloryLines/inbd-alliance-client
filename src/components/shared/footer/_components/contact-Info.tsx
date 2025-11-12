@@ -5,27 +5,33 @@ export function ContactInfo() {
     <div className="flex flex-col gap-8">
       {/* Come Visit Section */}
       <div>
-        <h3 className="text-white font-semibold mb-2">Come Visit</h3>
-        <p className="text-white text-sm leading-relaxed">
-          10 Anson Road #22-08,
+        <h3 className="text-white text-base md:text-lg font-song-myung font-medium mb-2">
+          Come Visit
+        </h3>
+        <p className="text-white/70 text-sm tracking-[-0.02em] font-sans font-medium leading-relaxed">
+          Suite 6B,
           <br />
-          International Plaza,
+          Dubai Creek Tower,
           <br />
-          Singapore - 079903
+          Riggat AI Buteen,
+          <br />
+          Deira, Dubai, UAE
         </p>
       </div>
 
       {/* Contact Us Section */}
       <div>
-        <h3 className="text-white font-semibold mb-2">Contact Us</h3>
-        <div className="text-white text-sm space-y-1">
-          <p>+65 6291 4540, +65 6291 4541</p>
+        <h3 className="text-white text-base md:text-lg font-song-myung font-medium mb-2">
+          Contact Us
+        </h3>
+        <div className="text-white/70 text-sm tracking-[-0.02em] font-sans font-medium leading-relaxed">
+          <p>+971 502 858 67, +971 504 314 303</p>
           <p>
             <a
               href="mailto:info@sealloyd.com"
               className="hover:opacity-70 transition-opacity"
             >
-              info@sealloyd.com
+              info@inbdalliance.com
             </a>
           </p>
         </div>
@@ -35,8 +41,8 @@ export function ContactInfo() {
       <SocialLinks />
 
       {/* Copyright */}
-      <p className="text-white text-sm">
-        © 2025 Sea Lloyd Shipping Lines Pte. Ltd.
+      <p className="text-white/70 font-sans font-medium tracking-[-0.02em] text-sm">
+        © 2025 INBD ALLIANCE
       </p>
     </div>
   );

@@ -44,18 +44,22 @@ export function ContainerGrid({ containers }: ContainerGridProps) {
           >
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="inline-flex items-center gap-2 cursor-pointer water-pour-button relative px-8 py-4 bg-[#2d5f4f] text-white font-sans font-semibold text-base tracking-normal rounded-lg overflow-hidden transition-all duration-400 hover:shadow-lg group"
               aria-expanded={isExpanded}
               aria-controls="container-grid"
             >
+              <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute inset-0 bg-[#ff6b35] transform origin-top translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
+                <div className="absolute inset-0 bg-[#ff6b35] transform origin-bottom -translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out clip-bottom" />
+              </div>
               {isExpanded ? (
                 <>
-                  Show Less
+                  <span className="relative z-10">View Less</span>
                   <ChevronUp size={20} />
                 </>
               ) : (
                 <>
-                  View All Containers
+                  <span className="relative z-10">View All Containers</span>
                   <ChevronDown size={20} />
                 </>
               )}

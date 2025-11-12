@@ -5,7 +5,7 @@ import { ContactInfo } from "./_components/contact-Info";
 export function Footer() {
   return (
     <footer className="bg-black text-white">
-      <div className="container mx-auto px-6 py-16 md:py-24">
+      <div className="container mx-auto px-4 py-16">
         {/* Desktop: Two columns with divider */}
         <div className="grid md:grid-cols-2 gap-12 md:gap-20">
           {/* Left Column */}

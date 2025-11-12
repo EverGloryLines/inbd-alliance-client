@@ -5,7 +5,7 @@ export interface SocialLink {
 
 const SOCIAL_LINKS: SocialLink[] = [
   { name: "Instagram", href: "https://instagram.com" },
-  { name: "FaceBook", href: "https://facebook.com" },
+  { name: "FaceBook", href: "https://www.facebook.com/profile.php?id=61577022506544" },
   { name: "Twitter", href: "https://twitter.com" },
   { name: "YouTube", href: "https://youtube.com" },
 ];

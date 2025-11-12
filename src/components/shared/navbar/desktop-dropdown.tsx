@@ -5,6 +5,7 @@ import type { NavItem } from "@/constants/nav-items";
 import { motion } from "motion/react";
 import Image from "next/image";
 import DropdownItem from "./dropdown-item";
+import Link from "next/link";
 
 interface DesktopDropdownProps {
   item: NavItem;
@@ -40,10 +41,7 @@ export default function DesktopDropdown({
       <div className="relative z-10">
         {/* Two Column Layout for INBD and Services */}
         {isWideDropdown && item.submenu ? (
-          <div
-            className={`grid grid-cols-2 gap-6 p-6`}
-          >
-           
+          <div className={`grid grid-cols-2 gap-6 p-6`}>
             <div className="space-y-4">
               {item.submenu
                 .slice(0, Math.ceil(item.submenu.length / 2))

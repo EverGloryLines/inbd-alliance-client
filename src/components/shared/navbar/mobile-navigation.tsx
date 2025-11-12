@@ -7,10 +7,12 @@ import MobileMenu from "./mobile-menu";
 
 interface MobileNavigationProps {
   isScrolled: boolean;
+  isMobile: boolean;
 }
 
 export default function MobileNavigation({
   isScrolled,
+  isMobile
 }: MobileNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,7 +23,7 @@ export default function MobileNavigation({
         className={`p-2 rounded-lg transition-colors duration-200 ${
           isScrolled
             ? "text-gray-800 hover:bg-gray-100"
-            : "text-white hover:bg-white/10"
+            : isMobile ? "text-gray-800 hover:bg-gray-100" : "text-white hover:bg-white/10"
         }`}
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
