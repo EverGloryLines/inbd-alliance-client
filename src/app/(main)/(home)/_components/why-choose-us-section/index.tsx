@@ -92,7 +92,7 @@ export function WhyChooseUs() {
 
                 <div className="absolute bottom-2 -left-30 lg:left-0 z-30">
                   <div className="py-2 bg-[#2d5f4f] rounded-sm w-44 lg:w-50 flex flex-col items-center justify-center shadow-2xl border-14 border-white">
-                    <div className="text-white text-5xl lg:text-6xl font-song-myung font-bold">
+                    <div className="text-white text-5xl lg:text-6xl font-song-myung font-medium">
                       {displayCount}
                     </div>
                     <div className="text-white text-base lg:text-lg font-medium mt-1">
@@ -121,7 +121,7 @@ export function WhyChooseUs() {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl md:text-2xl font-song-myung font-bold text-gray-900">
+              <h3 className="text-xl md:text-2xl font-song-myung font-medium text-gray-900">
                 Global Expertise in Seamless Ocean Shipping
               </h3>
 
@@ -145,7 +145,7 @@ export function WhyChooseUs() {
             </div>
 
             <div className="space-y-6 pt-4">
-              <h3 className="text-xl font-song-myung font-bold text-gray-900">
+              <h3 className="text-xl font-song-myung font-medium text-gray-900">
                 Driven by Experience, Focused on Customer Success
               </h3>
 
@@ -167,8 +167,8 @@ export function WhyChooseUs() {
 
             <div className="flex flex-wrap items-center gap-6 pt-6 relative">
               <Link href="/about">
-                <button className="cursor-pointer water-pour-button relative px-8 py-4 bg-[#2d5f4f] text-white font-bold text-sm tracking-wider rounded-none overflow-hidden transition-all duration-400 hover:shadow-lg group">
-                  <span className="relative z-10">MORE ABOUT US</span>
+                <button className="cursor-pointer water-pour-button relative px-8 py-4 bg-[#2d5f4f] text-white font-sans font-medium text-base tracking-normal rounded-lg overflow-hidden transition-all duration-400 hover:shadow-lg group">
+                  <span className="relative z-10">More About Us</span>
                   <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute inset-0 bg-[#ff6b35] transform origin-top translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
                     <div className="absolute inset-0 bg-[#ff6b35] transform origin-bottom -translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out clip-bottom" />

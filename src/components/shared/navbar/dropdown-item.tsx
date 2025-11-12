@@ -10,6 +10,7 @@ interface DropdownItemProps {
     label: string;
     description?: string;
     icon?: LucideIcon | ReactNode;
+    href?: string;
   };
 }
 
@@ -18,7 +19,7 @@ export default function DropdownItem({ item }: DropdownItemProps) {
 
   return (
     <motion.a
-      href="#"
+      href={item?.href || "#"}
       className="group block relative pb-1"
       whileHover={{ x: 2 }}
       transition={{ duration: 0.2 }}

@@ -115,14 +115,14 @@ export function HeroSection() {
                 animate="visible"
               >
                 <motion.button
-                  className="px-6 py-2.5 md:py-3 bg-white text-black font-sans font-medium rounded-lg hover:shadow-lg transition-all text-sm md:text-base cursor-pointer tracking-[-0.02em]"
+                  className="px-6 py-2.5 md:py-3 bg-white text-black font-sans font-medium rounded-lg hover:shadow-lg transition-all text-base cursor-pointer tracking-[-0.02em]"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   Contact us
                 </motion.button>
                 <motion.button
-                  className="px-6 py-2.5 md:py-3 border-2 border-white text-white font-sans font-medium rounded-lg hover:bg-white hover:text-black transition-all text-sm md:text-base cursor-pointer tracking-[-0.02em]"
+                  className="px-6 py-2.5 md:py-3 border-2 border-white text-white font-sans font-medium rounded-lg hover:bg-white hover:text-black transition-all text-base cursor-pointer tracking-[-0.02em]"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
