@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import type { Metadata } from "next";
 
@@ -8,11 +7,11 @@ export function generateMetadata(): Metadata {
 
   return {
     metadataBase: new URL(baseUrl),
-    title: `Work In Progress | ${companyName}`,
+    title: `Contact Us | ${companyName}`,
     description: `Get in touch with ${companyName}. Contact our teams in India or Bangladesh for inquiries about container shipping, rates, or services.`,
     keywords: `contact ${companyName}, contact shipping company, shipping support, India office, Bangladesh office, get a quote`,
     openGraph: {
-      title: `Work In Progress | ${companyName}`,
+      title: `Contact Us | ${companyName}`,
       description: `Contact our teams in India or Bangladesh for inquiries about container shipping.`,
       images: [
         {
@@ -26,38 +25,17 @@ export function generateMetadata(): Metadata {
     robots:
       "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
     alternates: {
-      canonical: `${baseUrl}/contact-us`,
+      canonical: `${baseUrl}/contact`,
     },
     authors: [{ name: companyName }],
     publisher: companyName,
   };
 }
-interface WorkInProgressProps {
-  imagePath?: string;
-  /** The native width of your image */
-  imageWidth?: number;
-  /** The native height of your image */
-  imageHeight?: number;
-}
 
-export default function WorkInProgress({
-  // title = "Work in Progress",
-  // message = "This page is currently under construction. We're working hard to bring it to you soon. Please check back later!",
-  imagePath = "/website-dev.png",
-  imageWidth = 700,
-  imageHeight = 700,
-}: WorkInProgressProps) {
+export default function Contact() {
   return (
-    <div className="flex min-h-[70vh] w-full flex-col items-center justify-center mt-24 lg:mt-32 2xl:mt-24 p-8 text-center">
-      <img
-        src={imagePath}
-        alt="Work in Progress Animation"
-        width={imageWidth}
-        height={imageHeight}
-        className="mb-8 max-w-full rounded-none h-auto"
-        style={{ maxWidth: "100%", height: "auto" }}
-        loading="eager"
-      />
+    <div>
+      <h1>Contact</h1>
     </div>
   );
 }
