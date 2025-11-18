@@ -14,7 +14,7 @@ export function CtaButtonVariantTwo({ children, href }: CtaButtonProps) {
   return (
     <Link href={href || "#"} target="_blank">
       <motion.button
-        className="group relative inline-flex items-center gap-2 px-3 md:px-6 py-2 md:py-3 overflow-hidden bg-[#EB6E36] rounded-none border border-[#EB6E36] text-white font-plus-jakarta-sans font-medium cursor-pointer"
+        className="group relative inline-flex items-center gap-2 px-3 md:px-6 py-2 md:py-3 overflow-hidden bg-[#EB6E36] rounded-lg border border-[#EB6E36] text-white font-sans font-medium cursor-pointer"
         whileHover="hover"
         whileTap={{ scale: 0.98 }}
       >

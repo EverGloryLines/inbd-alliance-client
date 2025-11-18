@@ -186,7 +186,7 @@ function Card({
       className={`${cardLayoutClasses} ${colorClass} ${textColor} flex flex-col items-center justify-center text-center rounded-none shadow-md p-6`}
     >
       <div className="mb-3">{icon}</div>
-      <h3 className={`${titleSize} font-semibold mb-1 leading-tight font-plus-jakarta-sans`}>{title}</h3>
+      <h3 className={`${titleSize} font-semibold mb-1 leading-tight font-song-myung`}>{title}</h3>
       <p
         className={`${descriptionSize} font-sans font-normal text-pretty leading-relaxed opacity-90`}
       >
