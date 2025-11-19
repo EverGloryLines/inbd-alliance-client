@@ -20,10 +20,6 @@ export default function DesktopDropdown({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.2 }}
       className={`absolute top-full left-0 mt-0 bg-white rounded-lg shadow-2xl overflow-hidden ${
         isWideDropdown ? "w-120" : "w-80"
       }`}
