@@ -112,7 +112,7 @@ export default function NewsSection({
           <SectionDescription>{description}</SectionDescription>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
           <motion.div
             variants={featuredCardVariants}
             initial="hidden"
