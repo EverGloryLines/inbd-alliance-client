@@ -38,7 +38,7 @@ export function Navbar() {
               alt="Sea Lloyd Logo"
               width={180}
               height={40}
-              className={`${isScrolled ? "h-16" : pathname !== "/" ? "h-16" : isMobile ? "h-16" : "h-20"} w-auto`}
+              className={`${isScrolled ? "h-16" : pathname !== "/" ? "h-16" : isMobile ? "h-12" : "h-20"} w-auto`}
             />
           </Link>
         </div>

@@ -49,7 +49,7 @@ const logos = [
   { name: "TT-Club", logoImage: "/homepage/logo-ticker/tt-club.jpg" },
 ];
 
-export const LogoTicker = () => {
+export const LogoTickerSection = () => {
   return (
     <div className="w-full pb-4 sm:pb-0 md:pb-12 bg-white pr-14 mt-10">
       <div className="w-full">

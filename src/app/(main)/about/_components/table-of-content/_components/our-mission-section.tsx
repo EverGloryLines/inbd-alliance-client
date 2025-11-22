@@ -41,7 +41,7 @@ export function OurMissionSection() {
       </p>
 
       {/* Generating Hope → Delivering Quality */}
-      <div className="flex flex-col sm:flex-row font-plus-jakarta-sans items-center justify-center gap-4 sm:gap-6 text-[#B29440] py-8">
+      <div className="flex flex-col sm:flex-row font-song-myung items-center justify-center gap-4 sm:gap-6 text-[#B29440] py-8">
         <h3 className="text-2xl lg:text-3xl font-medium  uppercase tracking-wide">
           Generating <span className="font-bold text-[#B29440]">&apos;Hope&apos;</span>
         </h3>

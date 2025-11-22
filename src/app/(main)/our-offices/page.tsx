@@ -1,4 +1,5 @@
-import React from "react";
+import { OfficesHeroSection } from "./_components/offices-hero/offices-hero-section";
+import { OfficesMapSection } from "./_components/agent-map/office-map-section";
 import type { Metadata } from "next";
 
 export function generateMetadata(): Metadata {
@@ -33,9 +34,12 @@ export function generateMetadata(): Metadata {
 }
 
 export default function OurOffices() {
-  return(
-    <div>
-      <h1>Our Offices</h1>
-    </div>
-  )
+  return (
+    <main className="w-full pt-24">
+      <OfficesHeroSection />
+      <section id="offices-section" className="mt-0 overflow-hidden">
+        <OfficesMapSection />
+      </section>
+    </main>
+  );
 }

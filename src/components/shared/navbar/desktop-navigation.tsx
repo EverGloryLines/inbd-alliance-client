@@ -32,10 +32,10 @@ export default function DesktopNavigation({
                 <button
                   className={`flex items-center gap-1 text-base font-medium transition-colors duration-200 cursor-pointer ${
                     isScrolled
-                      ? "text-gray-800 hover:text-[#EB6E36]"
+                      ? "text-gray-800"
                       : pathname !== "/"
-                      ? "text-gray-800 hover:text-[#EB6E36]"
-                      : "text-white hover:text-white/70"
+                      ? "text-gray-800"
+                      : "text-white hover:text-white/80"
                   } relative pb-1`}
                 >
                   <Image
@@ -57,7 +57,11 @@ export default function DesktopNavigation({
                   {/* Animated underline */}
                   <span
                     className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ${
-                      isScrolled ? "bg-[#EB6E36]" : "bg-[#EB6E36]"
+                      isScrolled
+                        ? "bg-gray-800"
+                        : pathname !== "/"
+                        ? "bg-gray-800"
+                        : "bg-white hover:bg-white/80"
                     } ${
                       activeDropdown === item.id
                         ? "w-full"
@@ -82,10 +86,10 @@ export default function DesktopNavigation({
               <button
                 className={`flex items-center gap-1 text-base font-medium transition-colors duration-200 cursor-pointer ${
                   isScrolled
-                    ? "text-gray-800 hover:text-[#EB6E36]"
+                    ? "text-gray-800"
                     : pathname !== "/"
-                    ? "text-gray-800 hover:text-[#EB6E36]"
-                    : "text-white hover:text-white/70"
+                    ? "text-gray-800"
+                    : "text-white hover:text-white/80"
                 } relative pb-1`}
               >
                 <Image
@@ -107,7 +111,11 @@ export default function DesktopNavigation({
                 {/* Animated underline */}
                 <span
                   className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ${
-                    isScrolled ? "bg-[#EB6E36]" : "bg-[#EB6E36]"
+                    isScrolled
+                      ? "bg-gray-800"
+                      : pathname !== "/"
+                      ? "bg-gray-800"
+                      : "bg-white hover:bg-white/80"
                   } ${
                     activeDropdown === item.id
                       ? "w-full"

@@ -40,7 +40,7 @@ export function TableOfContents({
       className="rounded-none border border-border bg-[#FDFDFD] p-6"
       aria-label="Table of contents"
     >
-      <h2 className="text-base md:text-lg lg:text-xl font-plus-jakarta-sans font-medium tracking-[-0.02em] bg-linear-to-b from-[#ed733b] via-[#ea6f36] to-[#a13706] bg-clip-text text-transparent leading-[1.4] mb-4">
+      <h2 className="text-base md:text-lg lg:text-xl font-song-myung font-medium tracking-[-0.02em] bg-linear-to-b from-[#ed733b] via-[#ea6f36] to-[#a13706] bg-clip-text text-transparent leading-[1.4] mb-4">
         Table of Contents
       </h2>
       <ol className="space-y-2">

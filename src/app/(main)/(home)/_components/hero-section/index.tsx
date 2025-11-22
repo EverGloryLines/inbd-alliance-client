@@ -48,7 +48,7 @@ export function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden">
       {/* Hero Background with Overlay */}
-      <div className="relative h-[70vh] md:h-[80vh] lg:h-[90vh] w-full">
+      <div className="relative h-screen md:h-[80vh] lg:h-[90vh] w-full">
         <Image
           src="/homepage/other/everglory-img-2.webp"
           alt="Delivery workers with package"

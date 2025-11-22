@@ -50,7 +50,7 @@ export const NAV_ITEMS: NavItem[] = [
         label: "Our Offices",
         description: "You are always welcome",
         icon: Building2,
-        href: "/work-in-progress",
+        href: "/our-offices",
       },
       {
         id: "agency-network",
