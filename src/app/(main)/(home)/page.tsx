@@ -4,10 +4,9 @@ import { LogoTickerSection } from "./_components/logo-ticker-section";
 import { ClassificationSection } from "./_components/classification-section/classification-section";
 import { ContainerShowcase } from "./_components/container-section";
 import VesselTrackingMaps from "./_components/vessel-tracking-section/vessel-tracking-maps";
-import NewsSection from "./_components/news-section";
-import { featuredNews, newsList } from "@/data/homepage-news";
 import { AffiliationSection } from "./_components/affiliation-section";
 import { WhyChooseUsSection } from "./_components/why-choose-us";
+import { NewsSliderSection } from "./_components/news-section";
 
 export default function Homepage() {
   return (
@@ -18,7 +17,7 @@ export default function Homepage() {
       <ClassificationSection />
       <ContainerShowcase />
       <VesselTrackingMaps />
-      <NewsSection featuredNews={featuredNews} newsList={newsList} />
+      <NewsSliderSection />
       <AffiliationSection />
     </div>
   );
