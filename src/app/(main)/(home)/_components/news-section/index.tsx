@@ -1,201 +1,215 @@
 "use client";
 
-import React from "react";
-import { motion, useInView, type Variants } from "motion/react";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { useState, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { motion, Variants } from "motion/react";
+import { useInView } from "motion/react";
+import { useRef } from "react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { NewsCard } from "./news-card";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { SectionTitle } from "@/components/shared/text/section-title";
-import { SectionDescription } from "@/components/shared/text/section-description";
 
-export interface NewsItem {
+interface NewsItem {
   id: string;
   date: string;
-  headline: string;
-  url: string;
-}
-
-export interface FeaturedNews extends NewsItem {
+  title: string;
+  category: "EVENTS" | "MSC CUSTOMER ADVISORY";
   imageUrl: string;
+  link: string;
 }
 
-interface NewsSectionProps {
-  title?: string;
-  description?: string;
-  featuredNews: FeaturedNews;
-  newsList: NewsItem[];
-}
+const newsItems: NewsItem[] = [
+  {
+    id: "1",
+    date: "17/09/25",
+    title:
+      "Italian company MSC proposes to invest $400 million in Bangladesh's Pangaon inland container terminal",
+    category: "MSC CUSTOMER ADVISORY",
+    imageUrl: "/homepage/why-choose-us/shipping-container.webp",
+    link: "https://www.amadershomoy.com/economics/article/158949/%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6%E0%A7%87%E0%A6%B0-%E0%A6%AA%E0%A6%BE%E0%A6%A8%E0%A6%97%E0%A6%BE%E0%A6%81%E0%A6%93-%E0%A6%85%E0%A6%AD%E0%A7%8D%E0%A6%AF%E0%A6%A8#google_vignette",
+  },
+  {
+    id: "2",
+    date: "17/09/25",
+    title:
+      "MSC eyes $400 million investment in Bangladesh’s Pangaon inland container terminal",
+    category: "EVENTS",
+    imageUrl:
+      "/homepage/other/pangaon-port.jpg",
+    link: "https://indiaseatradenews.com/msc-eyes-400-million-investment-in-bangladeshs-pangaon-inland-container-terminal",
+  },
+  {
+    id: "3",
+    date: "10/10/25",
+    title: "Pangaon ICT: The port that waits for a road to the Bay of Bengal",
+    category: "EVENTS",
+    imageUrl: "/homepage/other/ctg-port.jpg",
+    link: "https://www.tbsnews.net/thoughts/pangaon-ict-port-waits-road-1257486",
+  },
+  {
+    id: "4",
+    date: "30/09/25",
+    title:
+      "Why businesses avoid Pangaon and what MSC wants to fix with $400m offer",
+    category: "EVENTS",
+    imageUrl: "/homepage/other/msc-port.webp",
+    link: "https://today.thefinancialexpress.com.bd/last-page/mos-looks-into-graft-allegation-over-pangaon-ict-vessels",
+  },
+  {
+    id: "5",
+    date: "13/10/25",
+    title:
+      "Bangladesh to lease three major container terminals to global operators",
+    category: "MSC CUSTOMER ADVISORY",
+    imageUrl: "/homepage/other/shipping-port.jpeg",
+    link: "https://www.maritimegateway.com/bangladesh-to-lease-three-major-container-terminals-to-global-operators",
+  },
+];
 
-export default function NewsSection({
-  title = "NEWS",
-  description = "Stay updated with the latest announcements and industry developments",
-  featuredNews,
-  newsList,
-}: NewsSectionProps) {
-  const ref = React.useRef(null);
+export function NewsSliderSection() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    slidesToScroll: 1,
+    breakpoints: {
+      "(min-width: 768px)": { slidesToScroll: 2 },
+      "(min-width: 1024px)": { slidesToScroll: 4 },
+    },
+  });
+
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(true);
+
+  const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  const headerVariants: Variants = {
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  // Set up event listeners
+  if (emblaApi) {
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1] as const,
-        delay: 0.2,
+        duration: 0.6,
+        ease: "easeOut",
       },
     },
-  };
-
-  const featuredCardVariants: Variants = {
-    hidden: { opacity: 0, x: -60 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.7,
-        ease: [0.25, 0.1, 0.25, 1] as const,
-        delay: 0.5,
-      },
-    },
-  };
-
-  const listItemVariants: Variants = {
-    hidden: { opacity: 0, x: -40 },
-    visible: (custom: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1] as const,
-        delay: 0.7 + custom * 0.15,
-      },
-    }),
-  };
-
-  const mobileListItemVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (custom: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1] as const,
-        delay: 0.7 + custom * 0.15,
-      },
-    }),
   };
 
   return (
     <section
       ref={ref}
-      className="relative py-8 lg:py-16 2x:py-24 overflow-hidden"
+      className="relative w-full px-4 py-8 md:py-16 lg:py-24 overflow-x-hidden"
     >
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: "url('/homepage/other/musk-image.svg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
-      <div className="relative container mx-auto px-4">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="container mx-auto"
+      >
+        {/* Section Title */}
         <motion.div
-          variants={headerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="text-center mb-12 lg:mb-16"
+          variants={itemVariants}
+          className="mb-8 md:mb-12 text-center"
         >
-          <SectionTitle>{title}</SectionTitle>
-          <SectionDescription>{description}</SectionDescription>
+          <SectionTitle>
+            Discover the Latest News <br /> About INBD
+          </SectionTitle>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
-          <motion.div
-            variants={featuredCardVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="group"
+        {/* Slider Container */}
+        <motion.div variants={itemVariants} className="relative">
+          {/* Navigation Arrows */}
+          <button
+            onClick={scrollPrev}
+            disabled={!canScrollPrev}
+            className={cn(
+              "absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2",
+              "flex h-12 w-12 items-center justify-center rounded-full cursor-pointer bg-gray-100 shadow-lg",
+              "transition-all duration-300 hover:scale-110",
+              "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            )}
+            aria-label="Previous slide"
           >
-            <Link target="_blank" href={featuredNews.url} className="">
-              <div className="relative aspect-video w-full shadow-md rounded-none">
-                <div className="absolute top-0 left-0 z-10">
-                  <span className="inline-block bg-[#EB6E36] px-4 py-1.5 text-xs font-semibold text-white rounded-none shadow-md">
-                    NEWS
-                  </span>
+            <ChevronLeft className="h-6 w-6 text-foreground" />
+          </button>
+
+          <button
+            onClick={scrollNext}
+            disabled={!canScrollNext}
+            className={cn(
+              "absolute right-0 top-1/2 z-10 translate-x-1/2 -translate-y-1/2",
+              "flex h-12 w-12 items-center justify-center rounded-full cursor-pointer bg-gray-100 shadow-lg",
+              "transition-all duration-300 hover:scale-110",
+              "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            )}
+            aria-label="Next slide"
+          >
+            <ChevronRight className="h-6 w-6 text-foreground" />
+          </button>
+
+          {/* Embla Viewport */}
+          <div ref={emblaRef} className="overflow-hidden">
+            <div className="flex gap-4 md:gap-6">
+              {newsItems.map((item, index) => (
+                <div
+                  key={item.id}
+                  className="min-w-0 shrink-0 grow-0 basis-full md:basis-[calc(50%-12px)] lg:basis-[calc(25%-18px)]"
+                >
+                  <NewsCard item={item} index={index} />
                 </div>
-                <Image
-                  src={featuredNews.imageUrl}
-                  alt={featuredNews.headline}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-              <div className="py-6 lg:py-8">
-                <time className="block text-sm font-semibold text-[#EB6E36] uppercase tracking-wider mb-3">
-                  {featuredNews.date}
-                </time>
-                <h3 className="text-lg lg:text-xl font-medium text-deep-blue leading-tight group-hover:underline underline-offset-4 decoration-2 transition-all duration-300">
-                  {featuredNews.headline}
-                </h3>
-              </div>
-            </Link>
-          </motion.div>
-
-          <div className="space-y-0 -mt-7">
-            {newsList.map((item, index) => (
-              <motion.div
-                key={item.id}
-                custom={index}
-                variants={
-                  typeof window !== "undefined" && window.innerWidth < 768
-                    ? mobileListItemVariants
-                    : listItemVariants
-                }
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                className={`group py-6 lg:py-7 ${
-                  index < newsList.length - 1 ? "border-b border-gray-200" : ""
-                }`}
-              >
-                <Link href={item.url} target="_blank" className="block">
-                  <time className="block text-sm font-semibold text-[#EB6E36] uppercase tracking-wider mb-3">
-                    {item.date}
-                  </time>
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="flex-1 text-base lg:text-lg font-medium text-deep-blue leading-snug transition-all duration-300 group-hover:underline underline-offset-4 decoration-2">
-                      {item.headline}
-                    </h3>
-                    <ArrowUpRight
-                      className="shrink-0 w-5 h-5 text-[#EB6E36] transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
-                      strokeWidth={2.5}
-                    />
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-          className="text-center mt-12"
-        >
-          {/* <Link
-            href="/news"
-            className="inline-flex items-center gap-2 text-deep-red font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all duration-300"
-          >
-            View All News
-            <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
-          </Link> */}
         </motion.div>
-      </div>
+
+        {/* See All Button */}
+        <motion.div
+          variants={itemVariants}
+          className="mt-8 md:mt-12 flex justify-center"
+        >
+          <Button
+            variant="outline"
+            size="lg"
+            className="group rounded-lg px-8 py-6 text-base font-medium bg-transparent cursor-pointer"
+          >
+            See all news
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </Button>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

@@ -28,7 +28,7 @@ export const FEATURES = [
     id: "customer-service",
     title: "Customer-first service",
     subtext: "Driving growth and trust.",
-    imgSrc: "/homepage/why-choose-us/customer-service.png",
+    imgSrc: "/homepage/why-choose-us/customer-service.svg",
   },
 ];
 
