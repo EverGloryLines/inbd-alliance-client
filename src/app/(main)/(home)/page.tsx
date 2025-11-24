@@ -7,6 +7,7 @@ import VesselTrackingMaps from "./_components/vessel-tracking-section/vessel-tra
 import { AffiliationSection } from "./_components/affiliation-section";
 import { WhyChooseUsSection } from "./_components/why-choose-us";
 import { NewsSliderSection } from "./_components/news-section";
+import { TagSliderSection } from "./_components/tag-slider-section";
 
 export default function Homepage() {
   return (
@@ -14,6 +15,7 @@ export default function Homepage() {
       <HeroSection />
       <LogoTickerSection />
       <WhyChooseUsSection />
+      <TagSliderSection />
       <ClassificationSection />
       <ContainerShowcase />
       <VesselTrackingMaps />
